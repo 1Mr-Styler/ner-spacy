@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  spacy:
+    build: ./files
+    restart: always
+    volumes:
+      - ./files:/apps/home
+      - ./model:/model
+    ports:
+      - 8094:8080
+
