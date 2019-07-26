@@ -12,6 +12,7 @@ COPY . /apps/home
 WORKDIR /apps/home
 RUN apt-get update && apt-get install -y python-argparse libglib2.0-0 poppler-utils
 RUN pip2 install -r requirements.txt
+RUN python -m spacy download en_core_web_sm
 
 EXPOSE 8080
 ENTRYPOINT ["./docker-entry.sh"]
