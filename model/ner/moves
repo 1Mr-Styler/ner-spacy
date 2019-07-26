@@ -1,0 +1,32 @@
+Å´transitions⁄z[
+  {
+    "clas":0,
+    "move":1,
+    "label":"NAME",
+    "name":"B-NAME"
+  },
+  {
+    "clas":1,
+    "move":2,
+    "label":"NAME",
+    "name":"I-NAME"
+  },
+  {
+    "clas":2,
+    "move":3,
+    "label":"NAME",
+    "name":"L-NAME"
+  },
+  {
+    "clas":3,
+    "move":4,
+    "label":"NAME",
+    "name":"U-NAME"
+  },
+  {
+    "clas":4,
+    "move":5,
+    "label":"",
+    "name":"O"
+  }
+]
