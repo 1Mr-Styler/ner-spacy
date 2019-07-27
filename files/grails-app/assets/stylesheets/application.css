@@ -1,0 +1,30 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require bootstrap
+*= require grails
+*= require main
+*= require mobile
+*= require_self
+*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
+    grid-template-rows: 0.9fr 2.1fr 0.1fr;
+    grid-template-areas: ". Input Input ." ". SpaCy Stanford ." ". . . .";
+}
+
+.SpaCy { grid-area: SpaCy; }
+
+.Stanford { grid-area: Stanford; }
+
+.Input {
+    grid-area: Input;
+}

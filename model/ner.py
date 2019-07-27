@@ -1,9 +1,25 @@
-import spacy
-import sys
+# coding=utf8
+# the above tag defines encoding for this document and is for Python 2.x compatibility
 
-nlp = spacy.load("en_core_web_sm")
+import re
 
-doc = nlp(sys.argv[1])
+regex = r"<([A-Z_]+)>([0-9a-zA-Z-\s,\.\/]+)</[A-Z_]+>"
 
-for ent in doc.ents:
-    print(ent.label_, ent.text)
+test_str = ('''
+''')
+
+matches = re.finditer(regex, test_str, re.MULTILINE)
+data = ""
+for matchNum, match in enumerate(matches):
+    matchNum = matchNum + 1
+
+    for groupNum in range(0, len(match.groups())):
+        groupNum = groupNum + 1
+
+        if groupNum == 1:
+            data += match.group(groupNum)
+        elif groupNum == 2:
+            data += '----' + match.group(groupNum) + ',,,'
+
+print(data)
+# Note: for Python 2.7 compatibility, use ur"" to prefix the regex and u"" to prefix the test string and substitution.
