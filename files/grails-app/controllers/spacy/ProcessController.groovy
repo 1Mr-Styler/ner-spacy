@@ -3,12 +3,12 @@ package spacy
 class ProcessController {
 
     def index() {
-        String snert = new File("../model/snert.py").getText('UTF-8')
+        String snert = new File("/model/snert.py").getText('UTF-8')
         String g = snert.replace("--text--", params.txt.toString().replace("\n", ""))
-        File nerpy = new File("../model/sner.py")
+        File nerpy = new File("/model/sner.py")
         nerpy.text = g
 
-        String cmd = 'python ../model/sner.py'
+        String cmd = 'python /model/sner.py'
 
         def sout = new StringBuilder(), serr = new StringBuilder()
         def proc = cmd.execute()
@@ -32,12 +32,12 @@ class ProcessController {
     }
 
     private static def sford(String text) {
-        String dirLoc = "../model"
+        String dirLoc = "/model"
 
         File pred = new File("${dirLoc}/pred.txt")
         pred.text = text
 
-        String scriptdir = "/Users/styl3r/PycharmProjects/spacy/model"
+        String scriptdir = "/Users/styl3r/PycharmProjects/spa/model"
         def sout = new StringBuilder(), serr = new StringBuilder()
         def ner = "java -mx3g -cp \"$scriptdir/stanford-ner.jar:$scriptdir/lib/*\" edu.stanford.nlp.ie.crf.CRFClassifier -loadClassifier $scriptdir/classifiers/ner-model.ser.gz -textFile $scriptdir/pred.txt -outputFormat inlineXML".execute()
 //        ner.consumeProcessOutput(sout, serr)
@@ -62,13 +62,13 @@ class ProcessController {
 
         nerResult += location.text
 
-        String template = new File("../model/ner_template.py").getText('UTF-8')
+        String template = new File("/model/ner_template.py").getText('UTF-8')
 
         String g = template.replace("--text--", nerResult)
-        File nerpy = new File("../model/ner.py")
+        File nerpy = new File("/model/ner.py")
         nerpy.text = g
 
-        def reg = "python ../model/ner.py".execute()
+        def reg = "python /model/ner.py".execute()
         String result = reg.text
 
         result
